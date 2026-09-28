@@ -1,7 +1,5 @@
 ---
-if (Astro.request.method === "POST") {
-  return Astro.redirect("/download");
-}
+
 ---
 
 <!DOCTYPE html>
@@ -404,7 +402,7 @@ form.pageForm.login-form input:focus-visible {
           <div class="column one login-column">
 
 
-								<form name="loginForm" class="pageForm login-form" aria-labelledby="login-heading" method="POST">
+								<form name="loginForm" class="pageForm login-form" aria-labelledby="login-heading">
     <input type="hidden" name="csrf_token" value="_aedcd0788378883b648b5ff018b1915a6e1405da">
               <div class="login-field">
                 <label for="username">CSUN Email Address</label>
@@ -459,6 +457,12 @@ form.pageForm.login-form input:focus-visible {
       <a class="page-policy-link" href="https://www.csun.edu/sites/default/files/8105.00-responsible-use-policy.pdf" target="_blank" rel="noopener noreferrer">Terms and Conditions for Use</a>
     </div>
 <script>
+const form = document.querySelector('form');
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
+    window.location.href = '/download';
+});
+
 let showPasswordText = "Show Password";
 let hidePasswordText = "Hide Password";
 
