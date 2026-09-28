@@ -2,16 +2,498 @@
 
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, minimum-scale=1">
+	<meta name="robots" content="noindex">
+
+    <title>CSUN Central Authentication</title>
+    <link rel="icon" type="image/png" href="https://shibboleth.csun.edu/idp/images/csun-favicon-2026.png">
+    <link rel="shortcut icon" type="image/png" href="https://shibboleth.csun.edu/idp/images/csun-favicon-2026.png">
+	<!--link rel="stylesheet" type="text/css" href="/idp/css/main.css"-->
+</head>
+<body class="login">
+
+<style>
+body.login {
+  background:
+    linear-gradient(rgba(64, 43, 16, 0.34), rgba(64, 43, 16, 0.34)),
+    url("/assets/csun-login-background-2026.jpg") center center / cover fixed no-repeat;
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding-bottom: 64px;
+}
+
+#bwrapper {
+  background-color: transparent;
+  background-image: none;
+}
+
+#bwrapper {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 28px 16px 40px;
+  width: 100%;
+}
+
+.page-policy-bar {
+  align-items: center;
+  background: #111111;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  left: 0;
+  min-height: 52px;
+  padding: 10px 24px;
+  position: fixed;
+  right: 0;
+  z-index: 20;
+}
+
+.page-policy-bar .page-policy-link,
+.page-policy-bar .page-policy-link:visited,
+.page-policy-bar .page-policy-link:hover,
+.page-policy-bar .page-policy-link:active {
+  color: #ffffff !important;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-decoration: underline;
+  text-decoration-color: #ffffff;
+}
+
+.page-policy-bar .page-policy-link:focus-visible {
+  background: #111111;
+  color: #ffffff !important;
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+  text-decoration-thickness: 2px;
+}
+
+#coltwo {
+  float: none;
+  width: min(100%, 560px);
+  margin: 0 auto 24px auto;
+}
+
+.login-panel {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid #b8b8b8;
+  box-sizing: border-box;
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.18);
+  color: #111111;
+  display: flow-root;
+  padding: 28px 28px 24px;
+}
+
+.login-panel-brand {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 20px 0;
+}
+
+.login-panel-brand img {
+  display: block;
+  height: auto;
+  margin: 0;
+  max-width: min(100%, 280px);
+}
+
+.login-panel h1 {
+  border-bottom: none;
+  color: #111111;
+  font-size: 2rem;
+  margin: 0 0 24px 0;
+  text-align: left;
+}
+
+.login-panel-copy {
+  background: transparent;
+  box-sizing: border-box;
+  clear: both;
+  color: #111111;
+  display: block;
+  width: 100%;
+}
+
+.sr-only-focusable:focus {
+  background: #ffffff;
+  clip: auto;
+  color: #111111;
+  height: auto;
+  left: 16px;
+  padding: 8px 12px;
+  top: 16px;
+  width: auto;
+  z-index: 1000;
+}
+
+.login-panel-copy {
+  border-top: 1px solid #d7d7d7;
+  margin-top: 24px;
+  padding-top: 18px;
+  text-align: left;
+}
+
+.login-panel-copy p {
+  color: #111111;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.login-content {
+  margin: 0;
+  padding: 0;
+}
+
+.login-column {
+  float: none;
+  margin: 0;
+  width: 100%;
+}
+
+form.pageForm.login-form {
+  margin: 0;
+  max-width: none;
+  min-width: 0;
+  width: 100%;
+}
+
+.login-field {
+  margin: 0 0 22px 0;
+}
+
+form.pageForm.login-form label {
+  color: #111111;
+  display: block;
+  float: none;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  text-align: left;
+  width: auto;
+}
+
+.underline-input,
+.input-with-button {
+  background: #ffffff;
+  border-bottom: 2px solid #666666;
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+}
+
+.underline-input {
+  align-items: center;
+  min-height: 48px;
+}
+
+form.pageForm.login-form input[type="text"],
+form.pageForm.login-form input[type="password"] {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  color: #111111;
+  font-size: 1rem;
+  margin: 0;
+  min-height: 40px;
+  padding: 8px 0 10px 0;
+  width: 100%;
+}
+
+form.pageForm.login-form input[type="text"] {
+  padding-left: 0;
+}
+
+form.pageForm.login-form input[type="password"] {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-right: 0;
+  width: auto;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.input-with-button {
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 12px;
+  left: 0;
+  min-height: 48px;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  width: 100%;
+}
+
+.pwshowbutton {
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #111111;
+  border-radius: 2px;
+  color: #111111;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 0 0 auto;
+  height: 36px;
+  justify-content: center;
+  min-width: 44px;
+  margin-bottom: 4px;
+  padding: 4px 12px;
+  position: static;
+  transform: none;
+}
+
+.pwshowlabel {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.login-submit {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 24px;
+}
+
+.login-actions {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+button.submitButton {
+  background: #b00020;
+  border: 2px solid #8a0017;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  min-height: 48px;
+  min-width: 168px;
+  padding: 12px 24px;
+}
+
+button.submitButton:hover,
+button.submitButton:active {
+  background: #8f001a;
+  color: #ffffff;
+}
+
+.forgot-password-link {
+  color: #7a0019;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.underline-input:focus-within,
+.input-with-button:focus-within {
+  border-bottom-color: #b00020;
+  outline: 3px solid #005fcc;
+  outline-offset: 4px;
+}
+
+.pwshowbutton:focus-visible,
+button.submitButton:focus-visible,
+a:focus-visible {
+  outline: 3px solid #005fcc;
+  outline-offset: 3px;
+}
+
+form.pageForm.login-form input:focus-visible {
+  outline: none;
+}
+
+.pwshowbutton:hover {
+  background: #f2f2f2;
+}
+
+@media only screen and (max-width: 960px) {
+  body.login {
+    background-attachment: scroll;
+  }
+
+  #bwrapper {
+    padding: 20px 12px 28px;
+  }
+
+  .page-policy-bar {
+    min-height: 56px;
+    padding: 10px 16px;
+  }
+
+  #coltwo {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .login-panel {
+    padding: 24px 18px 20px;
+  }
+
+  .login-panel h1 {
+    font-size: 1.75rem;
+  }
+
+  .login-panel-brand {
+    margin-bottom: 16px;
+  }
+
+  .login-panel-brand img {
+    max-width: min(100%, 240px);
+  }
+
+  form.pageForm.login-form label {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .input-with-button {
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .pwshowbutton {
+    flex: 0 0 56px;
+    min-width: 56px;
+    padding: 4px 10px;
+  }
+
+  .login-submit {
+    justify-content: stretch;
+  }
+
+  button.submitButton {
+    width: 100%;
+  }
+
+  .login-actions {
+    align-items: stretch;
+  }
+}
+</style>
+
+				<div id="bwrapper">
+                <main id="main-content" class="card-body" role="main">
+<div id="coltwo" class="width460">
+<a id="content" name="content"></a>
+<div class="login-panel">
+<div class="login-panel-brand">
+	<img src="/assets/CSUN Logo.png" alt="CSUN Banner Image">
+</div>
+<h1 id="login-heading">Sign in</h1>
+
+        <div class="content login-content">
+          <div class="column one login-column">
+
+
+								<form name="loginForm" class="pageForm login-form" aria-labelledby="login-heading" action="/download" method="POST">
+    <input type="hidden" name="csrf_token" value="_aedcd0788378883b648b5ff018b1915a6e1405da">
+              <div class="login-field">
+                <label for="username">CSUN Email Address</label>
+                <div class="underline-input"><input size="25" class="required form-element form-field" id="username" name="j_username" type="text" value="" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" required=""></div>
+              </div>
+
+              <div class="login-field">
+                <label for="password">Password</label>
+                <p aria-live="polite" id="nrpa_pwdchg-password_text_current" class="sr-only">Password is hidden.</p><div class="input-with-button"><input class="required" size="25" id="password" name="j_password" type="password" value="" autocomplete="current-password" required=""><button class="pwshowbutton" id="nrpa_pwdchg-show_password_current" type="button" aria-controls="password" aria-pressed="false" onclick="handleTogglePasswordVisibility(&quot;current&quot;)" aria-label="Show Password"><span class="pwshowlabel" id="nrpa_pwdchg-show_label_current" aria-hidden="true">Show</span></button>
+              </div></div>
+
+                            <!--<div class="form-element-wrapper" style="display: none;">
+                <input type="checkbox" name="donotcache" value="1" id="donotcache">
+                <label for="donotcache">Don't Remember Login</label>
+               </div>
+			   -->
+              
+              <div class="form-element-wrapper" style="display: none;">
+                <input id="_shib_idp_revokeConsent" type="checkbox" name="_shib_idp_revokeConsent" value="true">
+                <label for="_shib_idp_revokeConsent">Clear prior granting of permission for release of your information to this service.</label>
+              </div>
+              <div class="login-submit">
+                <div class="login-actions">
+                  <button class="submitButton" type="submit" name="_eventId_proceed" onclick="this.childNodes[0].nodeValue=&#39;Logging in, please wait...&#39;">Sign In</button>
+											<a class="forgot-password-link" href="https://lad.csun.edu/psc/LADPRD/EMPLOYEE/ERP/s/WEBLIB_NRPA_PWD.ISCRIPT1.FieldFormula.IScript_ChangePassword">Forget Your Password?</a>
+                </div>
+              </div>
+
+            </form>
+
+            
+            
+          </div>
+		  <!--
+          <div class="column two">
+            <ul class="list list-help">
+                <li class="list-help-item"><a href="#"><span class="item-marker">&rsaquo;</span> Forgot your password?</a></li>
+              <li class="list-help-item"><a href="#"><span class="item-marker">&rsaquo;</span> Need Help?</a></li>
+            </ul>
+          </div>
+		  -->
+</div>
+<div class="box_content login-panel-copy">
+<p>You can sign in using your CSUN Email or UserID.</p>
+<p>For security, your session will expire after 27 minutes of inactivity.</p>
+</div>
+      </div>
+      </div>
+</main></div>
+    
+    <div class="page-policy-bar">
+      <a class="page-policy-link" href="https://www.csun.edu/sites/default/files/8105.00-responsible-use-policy.pdf" target="_blank" rel="noopener noreferrer">Terms and Conditions for Use</a>
+    </div>
+<script>
+let showPasswordText = "Show Password";
+let hidePasswordText = "Hide Password";
+
+function handleTogglePasswordVisibility(e) {
+
+  e = "current";
+  if (e == "current") {
+     showPasswordText = "Show Password";
+     hidePasswordText = "Hide Password";
+     showPasswordStatus = "Password Shown";
+     hidePasswordStatus = "Password Hidden";
+     s_password_input_id = "password";
+  }
+
+  let toggleLabel = document.getElementById("nrpa_pwdchg-show_label_"+e);
+  let showPasswordButton = document.getElementById("nrpa_pwdchg-show_password_"+e);  
+  let srPasswordText = document.getElementById("nrpa_pwdchg-password_text_"+e);
+  let passwordInput = document.getElementById(s_password_input_id);
+
+  let buttonState = showPasswordButton.getAttribute("aria-pressed");
+  showPasswordButton.setAttribute(
+    "aria-pressed",
+    buttonState === "false" ? "true" : "false"
+  );
+  showPasswordButton.setAttribute("aria-label", (buttonState === "true" ? showPasswordText : hidePasswordText));
+
+  srPasswordText.innerText =
+    buttonState === "true" ? hidePasswordStatus : showPasswordStatus;
+  passwordInput.type = buttonState === "true" ? "password" : "text";
+  toggleLabel.textContent =
+    buttonState === "true" ? "Show" : "Hide";
+
+};
+
+//showPasswordButton.addEventListener("click", handleTogglePasswordVisibility);
+</script>    
+     
+
+
+</body></html>

@@ -1,0 +1,29 @@
+<style>
+body {
+    background-color: #000000;
+    color: #ffffff;
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+h1 {
+    font-size: 32px;
+}
+p {
+    font-size: 20px;
+}
+</style>
+<body>
+    <div style="text-align: center">
+        <h1>Don't scan random QR codes</h1>
+        <p>Read PDF for how to better protect yourself</p>
+    </div>
+</body>
+<a id="dl" style="display: none" href="/assets/CSUN Logo.png" download>Download</a>
+
+<script>
+(function download() {
+    document.getElementById('dl').click();
+})()
+</script>
